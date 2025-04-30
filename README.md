@@ -1,6 +1,6 @@
 # Vue Product Listing App
 
-A web application built with Vue.js that displays a list of products fetched from the Fake Store API. The app includes essential e-commerce features like product listing, search/filter, and CRUD operations, styled with Bootstrap for a clean and responsive design.
+A web application built with Vue.js that displays a list of products fetched from the Fake Store API. The app includes essential e-commerce features like login and register customer, product listing, search/filter, and CRUD operations for admin role, styled with Bootstrap for a clean and responsive design.
 
 ## Table of Contents
 
@@ -10,6 +10,11 @@ A web application built with Vue.js that displays a list of products fetched fro
 - [Project Setup](#project-setup)
 
 ## Features
+
+### User Auth using JWT
+
+- Login and Register Customer
+- Update Profile
 
 ### Product Listing
 
@@ -21,7 +26,7 @@ A web application built with Vue.js that displays a list of products fetched fro
 - Search products by name or category
 - Filter products based on criteria like price range and category
 
-### CRUD Operations
+### CRUD Operations _(admin role only)_
 
 - **Create**: Add new products
 - **Read**: View product details
@@ -46,6 +51,7 @@ A web application built with Vue.js that displays a list of products fetched fro
 ### API
 
 - **Fake Store API**: Used for fetching product data and simulating backend operations
+- **API Link**: https://fakeapi.platzi.com/en
 
 ## Installation and Setup
 
