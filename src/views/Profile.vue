@@ -288,7 +288,7 @@ authStore.fetchProfile();
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
-  width: 1000px;
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -296,7 +296,7 @@ authStore.fetchProfile();
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  padding-bottom: 5rem;
 }
 
 .form > p {

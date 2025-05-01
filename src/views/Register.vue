@@ -73,6 +73,19 @@ const password = ref('');
 const router = useRouter();
 
 const handleRegister = async () => {
+  let timerInterval;
+  Swal.fire({
+    title: 'Registering...',
+    html: 'Please wait while we create your account.',
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  });
+
   try {
     await createUser({
       name: name.value,
@@ -81,6 +94,7 @@ const handleRegister = async () => {
       email: email.value,
       password: password.value,
     });
+    Swal.close();
     Swal.fire(
       'Success',
       'Your account has been created successfully!',
@@ -88,6 +102,7 @@ const handleRegister = async () => {
     );
     router.push('/login');
   } catch (error) {
+    Swal.close();
     Swal.fire('Error', 'Failed to register. Please try again.', 'error');
   }
 };
@@ -111,14 +126,13 @@ const handleRegister = async () => {
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
-  width: 400px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 100vh;
 }
 
 .form > p {

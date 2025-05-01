@@ -86,16 +86,32 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const handleLogin = async () => {
+  let timerInterval;
+
+  Swal.fire({
+    title: 'Logging in...',
+    html: 'Please wait while we process your login.',
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  });
+
   try {
     const response = await loginUser({
       email: email.value,
       password: password.value,
     });
-    authStore.setToken(response.access_token); // Save the JWT token in the store
-    await authStore.fetchProfile(); // Fetch the user's profile using the token
+    Swal.close();
+    authStore.setToken(response.access_token);
+    await authStore.fetchProfile();
     Swal.fire('Success', 'You have logged in successfully!', 'success');
-    router.push('/profile'); // Redirect to the profile page
+    router.push('/profile');
   } catch (error) {
+    Swal.close();
     Swal.fire('Error', 'Invalid email or password. Please try again.', 'error');
   }
 };
@@ -123,6 +139,7 @@ const handleLogin = async () => {
 }
 
 .container {
+  margin-top: 15%;
   display: flex;
   justify-content: center;
   align-items: center;

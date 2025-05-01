@@ -527,7 +527,7 @@ const clearCategoryFilter = () => {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 250px;
+  width: 100%;
   height: 40px;
   border-radius: 5px;
   border: 2px solid var(--main-color);

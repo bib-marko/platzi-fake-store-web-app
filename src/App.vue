@@ -56,17 +56,6 @@
                 {{ cartStore.cart.length }}</span
               >
             </div>
-
-            <!-- <button
-              v-if="authStore.token"
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              id="cartDropdown"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Cart ({{ cartStore.cart.length }})
-            </button> -->
             <div
               class="dropdown-menu dropdown-menu-end p-3 custom-dropdown"
               aria-labelledby="cartDropdown"
@@ -244,10 +233,6 @@ const gotoProfile = () => {
 .dropdown .btn {
   background-color: transparent;
   border: none;
-}
-
-.navbar {
-  height: 150px;
 }
 
 .utility-btn .btn {
@@ -459,5 +444,9 @@ const gotoProfile = () => {
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.collapse .navbar-collap {
+  height: 100vh !important;
 }
 </style>

@@ -49,8 +49,9 @@
           </option>
         </select>
       </div>
-
+      <!-- 
       <div class="input_container">
+        <img :src="product.images[0]" alt="imgURL" />
         <label class="input_label">Image URL</label>
         <input
           v-model="product.images[0]"
@@ -59,6 +60,27 @@
           placeholder="Enter image URL"
           required
         />
+      </div> -->
+
+      <div class="img-group">
+        <div class="input_container">
+          <label class="input_label">Image URL</label>
+          <input
+            v-model="product.images[0]"
+            type="url"
+            class="input_field"
+            placeholder="Enter image URL"
+            required
+          />
+        </div>
+        <button
+          v-if="product.images[0]"
+          type="button"
+          class="image-url"
+          @click="showImage(product.images[0])"
+        >
+          Show
+        </button>
       </div>
 
       <div class="btn-group">
@@ -161,6 +183,13 @@ const handleSubmit = async () => {
     });
   }
 };
+
+const showImage = (imageUrl) => {
+  Swal.fire({
+    imageUrl: imageUrl,
+    imageAlt: 'A tall image',
+  });
+};
 </script>
 
 <style scoped>
@@ -194,6 +223,9 @@ const handleSubmit = async () => {
   height: 100%;
 }
 
+.input_container img {
+  width: 100%;
+}
 .input_label {
   font-size: 10px;
   color: #8b8e98;
@@ -217,10 +249,35 @@ const handleSubmit = async () => {
   background-color: transparent;
 }
 
-.btn-group {
+.img-group {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: end;
+  gap: 10px;
+  margin-top: 10rem;
+}
+
+.image-url {
+  width: 200px;
+  background: #f2f2f2;
+  border-radius: 11px;
+  border: 0;
+  outline: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  background: linear-gradient(180deg, #363636 0%, #1b1b1b 50%, #000000 100%);
+  box-shadow:
+    0px 0px 0px 0px #ffffff,
+    0px 0px 0px 0px #000000;
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  margin-top: 20px;
 }
 
 .purchase--btn {
